@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Michroma&display=swap">
   <link rel="stylesheet" href="style.css">
 
-  <!-- 3D CAD viewer: switched off for now. To show it, uncomment this block and the
-       matching one in the Projects section below. Nothing else needs to change. -->
-  <!--
+  <!-- 3D CAD viewer (cad/viewer.js). To hide it, comment out this block and the
+       matching one in the Projects section below. -->
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="cad/cad.css">
   <script type="importmap">
@@ -29,7 +28,6 @@
     }
   </script>
   <script type="module" src="cad/viewer.js"></script>
-  -->
 </head>
 <body>
   <div class="sheet">
@@ -208,9 +206,8 @@
         </div>
 
         <!-- 3D CAD viewer: switched off for now. Uncomment the block below (and the
-             matching one in <head>) to show the jet engine models. See README. -->
-
-        <!--
+        <!-- 3D CAD viewer: tabs and captions for the models in models/. The head of
+             this file loads three.js and cad/viewer.js. -->
         <div class="cad" data-cad>
           <div class="cad-tabs" role="tablist" aria-label="Jet engine models">
             <button class="cad-tab" type="button" role="tab" id="cad-tab-stage" aria-controls="cad-panel-stage" aria-selected="true">Combustion stage</button>
@@ -261,7 +258,6 @@
             <p class="cad-desc">The shaft that runs along the engine’s main axis.</p>
           </div>
         </div>
-        -->
       </section>
 
       <section class="section" aria-labelledby="skills">

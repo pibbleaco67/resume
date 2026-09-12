@@ -88,7 +88,9 @@ function createViewer({ THREE, OrbitControls, GLTFLoader, MeshoptDecoder, RoomEn
 
   let renderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    // preserveDrawingBuffer keeps the last frame readable, so screenshots of the
+    // canvas aren't blank.
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
   } catch (e) {
     throw Object.assign(new Error('WebGL unavailable'), {
       userMessage: 'This browser can’t show 3D graphics (WebGL is off or unsupported).',
