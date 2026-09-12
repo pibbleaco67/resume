@@ -1,0 +1,180 @@
+/* 3D model viewer in the Projects section. The three --cad-* colors are read by
+   cad/viewer.js at runtime, so the model follows the page theme. */
+
+:root {
+  --cad-metal: #9AA3AB;
+  --cad-hardware: #6E7780;
+  --cad-edge: #1E2328;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cad-metal: #A7B1BA;
+    --cad-hardware: #7D8791;
+    --cad-edge: #0C1014;
+  }
+}
+
+:root[data-theme="dark"] {
+  --cad-metal: #A7B1BA;
+  --cad-hardware: #7D8791;
+  --cad-edge: #0C1014;
+}
+
+.cad {
+  grid-column: 1 / -1;
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+}
+
+/* Elements here set their own display, which would otherwise beat [hidden]. */
+.cad [hidden] { display: none !important; }
+
+/* ---------- Tabs ---------- */
+.cad-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--rule);
+  scrollbar-width: thin;
+}
+
+.cad-tab {
+  position: relative;
+  flex: none;
+  padding: 13px 18px 12px;
+  border: 0;
+  border-right: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cad-tab:hover { color: var(--ink); }
+.cad-tab[aria-selected="true"] { color: var(--ink); background: var(--paper); }
+.cad-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 2px;
+  background: var(--accent);
+}
+.cad-tab:focus-visible { outline-offset: -3px; }
+
+/* ---------- Viewport ---------- */
+.cad-view {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 16rem;
+  overflow: hidden;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
+}
+
+.cad-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.cad-canvas:active { cursor: grabbing; }
+
+.cad-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 24px;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--ink-2);
+  pointer-events: none;
+}
+.cad-overlay.is-error { color: var(--accent); }
+
+.cad-hint {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+/* ---------- Caption: one per tab ---------- */
+.cad-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 4px 24px;
+  padding: 14px 18px 16px;
+  border-top: 1px solid var(--rule);
+}
+.cad-panel:focus-visible { outline-offset: -3px; }
+
+.cad-title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-synthesis: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.cad-meta {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-3);
+  text-align: right;
+}
+
+.cad-desc {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-width: 68ch;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+
+/* Before the viewer script runs, show only the first caption. */
+.js .cad:not(.is-enhanced) .cad-panel + .cad-panel { display: none; }
+
+/* Without JavaScript: no tabs or viewer — every caption shows as plain text. */
+html:not(.js) .cad-tabs,
+html:not(.js) .cad-view { display: none; }
+html:not(.js) .cad-view + .cad-panel { border-top: 0; }
+
+@media (max-width: 560px) {
+  /* All five tabs stay visible: they wrap and stretch to fill each row. */
+  .cad-tabs { flex-wrap: wrap; overflow-x: visible; }
+  .cad-tab { flex: 1 1 auto; border-bottom: 1px solid var(--rule); margin-bottom: -1px; }
+  .cad-view { aspect-ratio: 4 / 3; }
+  .cad-panel { grid-template-columns: minmax(0, 1fr); padding: 12px 14px 14px; }
+  .cad-meta { text-align: left; }
+  .cad-hint { left: 12px; right: auto; }
+}
+
+@media print {
+  .cad { display: none; }
+}

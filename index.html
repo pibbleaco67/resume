@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Adrian Yang</title>
+  <meta name="description" content="Adrian Yang — aerospace engineering student at the University of Maryland and member of the Terrapin Rocket Team.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Adrian Yang">
+  <meta property="og:description" content="Aerospace engineering student at the University of Maryland and member of the Terrapin Rocket Team.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Michroma&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 3D CAD viewer: switched off for now. To show it, uncomment this block and the
+       matching one in the Projects section below. Nothing else needs to change. -->
+  <!--
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="cad/cad.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.min.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="cad/viewer.js"></script>
+  -->
+</head>
+<body>
+  <div class="sheet">
+
+    <header class="hero">
+      <div class="hero-top">
+        <div class="hero-id">
+          <p class="eyebrow">Aerospace Engineering · University of Maryland · Class of 2029</p>
+          <h1 class="name"><span>Adrian</span> <span>Yang</span></h1>
+          <p class="lede">Aerospace engineering student at the University of Maryland. I help build structures for the Terrapin Rocket Team’s two-stage rocket, and I spent summer 2025 researching AI-assisted software testing.</p>
+        </div>
+
+        <dl class="contact">
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:adrian.yang6302@gmail.com">adrian.yang6302@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href="tel:+12407258530">+1 (240) 725-8530</a></dd>
+          </div>
+          <div>
+            <dt>Based in</dt>
+            <dd>Bethesda, MD</dd>
+          </div>
+          <div>
+            <dt>Résumé</dt>
+            <dd><button class="btn" id="print-resume" type="button">Print / save as PDF</button></dd>
+          </div>
+        </dl>
+      </div>
+
+      <figure class="figure">
+        <div class="figure-box">
+          <div class="drawing">
+            <svg class="rocket" viewBox="0 0 1000 240" role="img" aria-labelledby="rocket-title">
+              <title id="rocket-title">Side-view schematic of a two-stage high-power rocket: booster at the aft end, sustainer and nose cone forward, with the stage separation plane between them.</title>
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path class="arrowhead" d="M0 1.5 L10 5 L0 8.5 Z"/>
+                </marker>
+              </defs>
+
+              <!-- Airframe -->
+              <polygon class="part" points="60,99 60,121 44,127 44,93"/>
+              <polygon class="part" points="60,88 170,88 118,36 64,36"/>
+              <polygon class="part" points="60,132 170,132 118,184 64,184"/>
+              <rect class="part" x="60" y="88" width="370" height="44"/>
+              <rect class="part" x="60" y="106.5" width="110" height="7"/>
+              <rect class="part" x="296" y="82" width="14" height="6"/>
+              <polygon class="part" points="436,88 526,88 486,50 440,50"/>
+              <polygon class="part" points="436,132 526,132 486,170 440,170"/>
+              <rect class="part" x="430" y="88" width="370" height="44"/>
+              <rect class="part" x="436" y="107" width="90" height="6"/>
+              <rect class="part" x="696" y="82" width="14" height="6"/>
+              <path class="part" d="M800 88 C 880 88, 935 96, 968 110 C 935 124, 880 132, 800 132 Z"/>
+
+              <!-- Centerline -->
+              <line class="cl" x1="20" y1="110" x2="990" y2="110"/>
+
+              <!-- Annotations -->
+              <g class="annot">
+                <line class="cl" x1="430" y1="28" x2="430" y2="200"/>
+                <text class="lbl" x="430" y="20" text-anchor="middle">STAGE SEPARATION</text>
+                <line class="ext" x1="44" y1="132" x2="44" y2="234"/>
+                <line class="ext" x1="430" y1="200" x2="430" y2="234"/>
+                <line class="ext" x1="968" y1="118" x2="968" y2="234"/>
+                <line class="dim" x1="44" y1="226" x2="430" y2="226" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                <line class="dim" x1="430" y1="226" x2="968" y2="226" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                <text class="lbl dim-lbl" x="237" y="214" text-anchor="middle">BOOSTER</text>
+                <text class="lbl dim-lbl" x="699" y="214" text-anchor="middle">SUSTAINER</text>
+              </g>
+            </svg>
+          </div>
+
+          <dl class="specs">
+            <div><dt>Configuration</dt><dd>Two-stage</dd></div>
+            <div><dt>Target apogee</dt><dd>40,000 ft</dd></div>
+            <div><dt>Target speed</dt><dd>Mach 1.6</dd></div>
+            <div><dt>Airframe</dt><dd>Fiberglass</dd></div>
+          </dl>
+        </div>
+        <figcaption><span class="fig-no">Fig. 1</span>The Terrapin Rocket Team’s current two-stage high-power rocket. Schematic, not to scale.</figcaption>
+      </figure>
+    </header>
+
+    <main class="sections">
+      <section class="section" aria-labelledby="education">
+        <h2 class="section-title" id="education">Education</h2>
+        <div class="entries">
+          <article class="entry">
+            <header class="entry-head">
+              <h3 class="entry-org">University of Maryland</h3>
+              <p class="entry-where">College Park, MD</p>
+            </header>
+            <p class="entry-role"><span class="role">Aerospace Engineering</span> <span class="dates">Expected May 2029</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="experience">
+        <h2 class="section-title" id="experience">Experience</h2>
+        <div class="entries">
+          <article class="entry">
+            <header class="entry-head">
+              <h3 class="entry-org">Hallie Morgan Technologies</h3>
+              <p class="entry-where">Bethesda, MD</p>
+            </header>
+            <p class="entry-role"><span class="role">Software Engineer Intern</span> <span class="dates">May 2025 – Aug 2025</span></p>
+            <ul class="points">
+              <li>Conducted independent research on AI-powered testing tools, including Jeddict and Selenium, to explore their capabilities and applications in coding and testing.</li>
+              <li>Explored integration strategies for incorporating AI tools into existing software testing frameworks and workflows.</li>
+            </ul>
+          </article>
+
+          <article class="entry">
+            <header class="entry-head">
+              <h3 class="entry-org">Yi-Fang Fruit Tea</h3>
+              <p class="entry-where">Rockville, MD</p>
+            </header>
+            <p class="entry-role"><span class="role">Barista / Cashier</span> <span class="dates">Jun – Aug 2022 · May 2025 – <em class="now">Present</em></span></p>
+            <ul class="points">
+              <li>Greeted and served 80+ customers every shift, assisting with drink and pastry orders.</li>
+              <li>Trained new employees on beverage prep, POS systems, and equipment maintenance.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="involvement">
+        <h2 class="section-title" id="involvement">Involvement</h2>
+        <div class="entries">
+          <article class="entry">
+            <header class="entry-head">
+              <h3 class="entry-org">Terrapin Rocket Team</h3>
+              <p class="entry-where">College Park, MD</p>
+            </header>
+            <p class="entry-role"><span class="role">Two-Stage / Liquid Rocket Team Member</span> <span class="dates">Jan 2026 – <em class="now">Present</em></span></p>
+            <ul class="points">
+              <li>Assisted in fabrication and preparation of structural components for a fiberglass-based two-stage high-power rocket targeting 40,000&nbsp;ft apogee and Mach&nbsp;1.6 velocity.</li>
+              <li>Responsible for precision sanding and surface conditioning to meet bonding and assembly tolerances.</li>
+              <li>Shadowed upperclassmen to gain hands-on exposure to composite fabrication and integration.</li>
+              <li>Contributed to sponsorship outreach for the liquid rocket division through external communications and partner engagement.</li>
+            </ul>
+          </article>
+
+          <article class="entry">
+            <header class="entry-head">
+              <h3 class="entry-org">Walt Whitman High School</h3>
+              <p class="entry-where">Bethesda, MD</p>
+            </header>
+            <p class="entry-role"><span class="role">Track and Field Short-Distance Captain</span> <span class="dates">Aug 2023 – Jun 2024</span></p>
+            <ul class="points">
+              <li>Led the short-distance sprint group, coaching both new and experienced runners in technique, race execution, and training discipline.</li>
+              <li>Coordinated with coaching staff to reinforce structured training, including conditioning programs and meet preparation.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="projects">
+        <h2 class="section-title" id="projects">Projects</h2>
+        <div class="entries">
+          <article class="entry">
+            <header class="entry-head">
+              <h3 class="entry-org">SolidWorks CAD Jet Engine</h3>
+              <p class="entry-where">College Park, MD</p>
+            </header>
+            <p class="entry-role"><span class="role">Personal project</span> <span class="dates">Aug 2026 – <em class="now">Present</em></span></p>
+            <ul class="points">
+              <li>Modeling a jet engine in SolidWorks module by module: a 307-part combustion stage, an exhaust section and a 616&nbsp;mm main shaft.</li>
+              <li>Built the combustion stage around six bolted combustion cans, each with its own chamber, casing, end cap and fuel port.</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 3D CAD viewer: switched off for now. Uncomment the block below (and the
+             matching one in <head>) to show the jet engine models. See README. -->
+
+        <!--
+        <div class="cad" data-cad>
+          <div class="cad-tabs" role="tablist" aria-label="Jet engine models">
+            <button class="cad-tab" type="button" role="tab" id="cad-tab-stage" aria-controls="cad-panel-stage" aria-selected="true">Combustion stage</button>
+            <button class="cad-tab" type="button" role="tab" id="cad-tab-chamber" aria-controls="cad-panel-chamber" aria-selected="false" tabindex="-1">Combustion chamber</button>
+            <button class="cad-tab" type="button" role="tab" id="cad-tab-exhaust" aria-controls="cad-panel-exhaust" aria-selected="false" tabindex="-1">Exhaust</button>
+            <button class="cad-tab" type="button" role="tab" id="cad-tab-intake" aria-controls="cad-panel-intake" aria-selected="false" tabindex="-1">Intake casing</button>
+            <button class="cad-tab" type="button" role="tab" id="cad-tab-shaft" aria-controls="cad-panel-shaft" aria-selected="false" tabindex="-1">Main shaft</button>
+          </div>
+
+          <div class="cad-view">
+            <canvas class="cad-canvas" aria-label="3D model viewer"></canvas>
+            <p class="cad-overlay" hidden></p>
+            <p class="cad-hint">Drag to rotate · Ctrl + scroll to zoom · Double-click to reset</p>
+          </div>
+
+          <div class="cad-panel" role="tabpanel" id="cad-panel-stage" aria-labelledby="cad-tab-stage" tabindex="0"
+               data-model="models/combustion-stage.glb" data-title="combustion stage">
+            <h3 class="cad-title">Combustion stage</h3>
+            <p class="cad-meta">307 parts · 450 × 358 × 382 mm</p>
+            <p class="cad-desc">Six combustion cans ring the combustion shell, bolted to the intake casing.</p>
+          </div>
+
+          <div class="cad-panel" role="tabpanel" id="cad-panel-chamber" aria-labelledby="cad-tab-chamber" tabindex="0"
+               data-model="models/combustion-chamber.glb" data-title="combustion chamber" data-axis="z">
+            <h3 class="cad-title">Combustion chamber</h3>
+            <p class="cad-meta">33 parts · 84 × 84 × 140 mm</p>
+            <p class="cad-desc">One of the six combustion cans on its own: chamber, casing, end cap and fuel port cap.</p>
+          </div>
+
+          <div class="cad-panel" role="tabpanel" id="cad-panel-exhaust" aria-labelledby="cad-tab-exhaust" tabindex="0"
+               data-model="models/exhaust.glb" data-title="exhaust section">
+            <h3 class="cad-title">Exhaust section</h3>
+            <p class="cad-meta">12 parts · 23.6 × 19.0 × 13.7 in</p>
+            <p class="cad-desc">Rear casing, flare base and heat ring, with three pairs of flare levers and three blade designs.</p>
+          </div>
+
+          <div class="cad-panel" role="tabpanel" id="cad-panel-intake" aria-labelledby="cad-tab-intake" tabindex="0"
+               data-model="models/intake-casing.glb" data-title="intake casing">
+            <h3 class="cad-title">Intake casing</h3>
+            <p class="cad-meta">1 part · 284.0 × 238.5 × 238.5 mm</p>
+            <p class="cad-desc">A ribbed cylindrical casing with a bolted flange, modeled as one part. It also forms part of the combustion stage.</p>
+          </div>
+
+          <div class="cad-panel" role="tabpanel" id="cad-panel-shaft" aria-labelledby="cad-tab-shaft" tabindex="0"
+               data-model="models/main-shaft.glb" data-title="main axis shaft" data-axis="y">
+            <h3 class="cad-title">Main axis shaft</h3>
+            <p class="cad-meta">1 part · 615.6 mm long · chrome stainless steel</p>
+            <p class="cad-desc">The shaft that runs along the engine’s main axis.</p>
+          </div>
+        </div>
+        -->
+      </section>
+
+      <section class="section" aria-labelledby="skills">
+        <h2 class="section-title" id="skills">Skills &amp; Interests</h2>
+        <dl class="skills">
+          <div>
+            <dt>Programming</dt>
+            <dd>Java, Python, JavaScript, HTML</dd>
+          </div>
+          <div>
+            <dt>Design &amp; fabrication</dt>
+            <dd>CAD, composite surface preparation, structural fabrication, aerospace assembly processes, two-stage rocket systems</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd>Mandarin (fluent speaking)</dd>
+          </div>
+          <div>
+            <dt>Interests</dt>
+            <dd>Motorsports (LMDh, GT3, F1, NASCAR), rocketry, table tennis, snowboarding, video games, the gym</dd>
+          </div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="sheet-foot">
+      <p class="foot-note">Get in touch: <a href="mailto:adrian.yang6302@gmail.com">adrian.yang6302@gmail.com</a></p>
+      <div class="title-block" aria-label="Document details">
+        <div class="tb-cell tb-title"><span class="tb-label">Title</span><span class="tb-value">Résumé — Adrian Yang</span></div>
+        <div class="tb-cell"><span class="tb-label">Drawn by</span><span class="tb-value">A. Yang</span></div>
+        <div class="tb-cell"><span class="tb-label">Rev</span><span class="tb-value">2026-08</span></div>
+        <div class="tb-cell"><span class="tb-label">Scale</span><span class="tb-value">NTS</span></div>
+        <div class="tb-cell"><span class="tb-label">Sheet</span><span class="tb-value">1 of 1</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('print-resume').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
