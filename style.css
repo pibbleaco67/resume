@@ -293,6 +293,24 @@ figcaption {
 
 .entry { display: grid; gap: 4px; }
 
+/* One entry can hold several roles; each one is a .subentry. */
+.subentry { display: grid; gap: 4px; }
+.subentry + .subentry { margin-top: 20px; }
+
+.entry-figure {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  max-width: 34rem;
+}
+.entry-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: var(--paper-raised);
+}
+
 .entry-head,
 .entry-role {
   display: flex;
@@ -434,6 +452,7 @@ figcaption {
   .contact { gap: 4pt; }
   .contact div:last-child,
   .figure,
+  .entry-figure,
   .sheet-foot { display: none; }
   .sections { gap: 12pt; }
   .section { grid-template-columns: 9rem minmax(0, 1fr); gap: 6pt 16pt; padding-top: 8pt; }
