@@ -176,6 +176,7 @@ a:hover { color: var(--accent); }
 .figure-box {
   border: 1px solid var(--rule);
   background: var(--paper-raised);
+  min-width: 0; /* as a grid item it would otherwise stretch to its widest drawing */
 }
 
 .drawing {
@@ -189,42 +190,48 @@ a:hover { color: var(--accent); }
   background-position: -1px -1px;
 }
 
-.rocket { display: block; width: 100%; max-width: 100%; height: auto; overflow: visible; }
+.dwg { display: block; width: 100%; max-width: 100%; height: auto; overflow: visible; }
 
-.rocket .part {
+.dwg .part {
   fill: var(--paper-raised);
   stroke: var(--ink);
   stroke-width: 1.5;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
-.rocket .cl {
+.dwg .cl {
   fill: none;
   stroke: var(--ink-3);
   stroke-width: 1;
   stroke-dasharray: 18 5 3 5;
   vector-effect: non-scaling-stroke;
 }
-.rocket .ext {
+.dwg .ext {
   fill: none;
   stroke: var(--ink-3);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
-.rocket .dim {
+.dwg .dim {
   fill: none;
   stroke: var(--accent);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
-.rocket .arrowhead { fill: var(--accent); }
-.rocket .lbl {
+.dwg .arrowhead { fill: var(--accent); }
+.dwg .lbl {
   font-family: var(--mono);
   font-size: 16px;
   letter-spacing: 0.1em;
   fill: var(--ink-2);
 }
-.rocket .dim-lbl { fill: var(--accent); }
+.dwg .dim-lbl { fill: var(--accent); }
+.dwg .ln {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
 
 @media (max-width: 560px) {
   .rocket .annot { display: none; }
@@ -263,6 +270,9 @@ figcaption {
   color: var(--ink-2);
 }
 .fig-no { color: var(--accent); margin-right: 0.75em; }
+
+/* min-width: 0 lets the figure shrink, so only its drawing scrolls sideways. */
+.figure-wide { grid-column: 1 / -1; min-width: 0; }
 
 /* ---------- Sections ---------- */
 .sections {
@@ -422,6 +432,8 @@ figcaption {
 }
 
 @media (max-width: 560px) {
+  .figure-wide .drawing { overflow-x: auto; }
+  .figure-wide .dwg { min-width: 620px; }
   .skills div { grid-template-columns: minmax(0, 1fr); }
   .contact { min-width: 0; }
 }
