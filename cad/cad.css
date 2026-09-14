@@ -34,9 +34,11 @@
 .cad-tabs {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden; /* keeps the selected-tab underline from adding a vertical scrollbar */
   border-bottom: 1px solid var(--rule);
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
+.cad-tabs::-webkit-scrollbar { display: none; }
 
 .cad-tab {
   position: relative;
@@ -60,7 +62,7 @@
 .cad-tab[aria-selected="true"]::after {
   content: "";
   position: absolute;
-  inset: auto 0 -1px 0;
+  inset: auto 0 0 0;
   height: 2px;
   background: var(--accent);
 }
@@ -167,7 +169,7 @@ html:not(.js) .cad-view + .cad-panel { border-top: 0; }
 
 @media (max-width: 560px) {
   /* All five tabs stay visible: they wrap and stretch to fill each row. */
-  .cad-tabs { flex-wrap: wrap; overflow-x: visible; }
+  .cad-tabs { flex-wrap: wrap; overflow: visible; }
   .cad-tab { flex: 1 1 auto; border-bottom: 1px solid var(--rule); margin-bottom: -1px; }
   .cad-view { aspect-ratio: 4 / 3; }
   .cad-panel { grid-template-columns: minmax(0, 1fr); padding: 12px 14px 14px; }
