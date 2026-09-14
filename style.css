@@ -172,8 +172,10 @@ a:hover { color: var(--accent); }
   border-color: color-mix(in srgb, var(--accent) 35%, var(--rule));
   border-radius: 0;
   cursor: pointer;
+  text-decoration: none;
 }
 .btn:hover {
+  color: color-mix(in srgb, var(--accent) 82%, var(--ink));
   background: color-mix(in srgb, var(--accent) 13%, var(--paper-raised));
   border-color: var(--accent);
 }

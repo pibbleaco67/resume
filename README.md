@@ -1,18 +1,22 @@
 # Adrian Yang — résumé site
 
-A single-page résumé website. Plain HTML and CSS, no build step.
+A single-page résumé website, live at **https://engineisbroke.com**. Plain HTML, CSS and a little
+JavaScript, no build step.
 
-| File / folder | What it holds                                                        |
-| ------------- | -------------------------------------------------------------------- |
-| `index.html`  | All the text — edit content here                                     |
-| `style.css`   | Colors, type, layout, and the print stylesheet                       |
-| `favicon.svg` | Browser tab icon                                                     |
-| `cad/`        | The 3D model viewer — built, but switched off (see below)            |
-| `models/`     | The SolidWorks jet engine models as compressed `.glb` files (6.5 MB) |
+| File / folder            | What it holds                                                     |
+| ------------------------ | ----------------------------------------------------------------- |
+| `index.html`             | All the text — edit content here                                  |
+| `style.css`              | Colors, type, layout, and the print stylesheet                    |
+| `Adrian-Yang-Resume.pdf` | The résumé behind the "Print / download PDF" button               |
+| `cad/`                   | The 3D model viewer in the Projects section (script and styles)   |
+| `models/`                | The SolidWorks models, converted to compressed `.glb` files       |
+| `favicon.svg`            | Browser tab icon                                                  |
+| `CNAME`                  | Tells GitHub Pages to serve the site at engineisbroke.com — keep it |
 
 ## Preview
 
-Open `index.html` in a browser.
+Serve the folder, e.g. run `npx serve .` here and open the address it prints. The page also opens
+straight from `index.html`, but browsers won't load the 3D models from a local file.
 
 ## Update the content
 
@@ -22,30 +26,22 @@ orange "current" dot.
 
 When you update the résumé, also bump the **Rev** date in the title block at the bottom of the page.
 
-## Print / PDF
+## Résumé PDF
 
-The "Print / save as PDF" button uses a print stylesheet that drops the rocket drawing and the
-footer, and fits the résumé on one letter page.
+The "Print / download PDF" button opens `Adrian-Yang-Resume.pdf` in a new tab, where visitors can
+print or save it. To update it, export your new résumé as a PDF and replace that file, keeping the
+same name. Pressing Ctrl + P on the web page itself still prints a paper version of the page.
 
-## The 3D CAD viewer (currently off)
+## The 3D CAD viewer
 
-The Projects section can show the SolidWorks jet engine as a 3D model: five tabs (combustion stage,
-combustion chamber, exhaust, intake casing, main shaft), each turning slowly, drag to rotate and
-Ctrl + scroll to zoom. It is finished and tested but commented out, so the page shows only the
-text entry.
+The Projects section shows three SolidWorks models in tabs: combustion stage, exhaust and main
+shaft. Each tab's caption carries a `data-model` attribute pointing at its file in `models/`. To
+hide the viewer, comment out the two blocks marked in `index.html`: one in `<head>`, one in the
+Projects section.
 
-To switch it on, remove the `<!--` and `-->` around two blocks in `index.html`: one in `<head>`,
-one in the Projects section. Both are marked with a comment.
+## Hosting
 
-Once it is on, the models won't load from a file opened directly in the browser — serve the folder
-instead, e.g. run `npx serve .` here and open the address it prints.
-
-The models came from your SolidWorks files, exported as STL and compressed for the web. Each tab's
-caption carries a `data-model` attribute pointing at its file in `models/`.
-
-## Publish with GitHub Pages
-
-1. Push this repo to GitHub.
-2. In the repo, go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. The site goes live at `https://<username>.github.io/resume/` within a minute or two.
+GitHub Pages serves the `main` branch root. Pushing to `main` republishes the site in about a
+minute. The domain is registered at Cloudflare, whose DNS points it at GitHub with records set to
+**DNS only** (grey cloud): four A and four AAAA records for `@`, and a `www` CNAME to
+`pibbleaco67.github.io`.
